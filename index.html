@@ -140,7 +140,7 @@
 
     <form method="post" action="" enctype="multipart/form-data" id="myform">
         <div style="margin-top: 10px" class='preview'>
-            <img src="" id="previewImage" width="30%" height="30%" style="border-radius: 20px;">
+            <img src="" id="previewImage" width="30%" height="30%" style="border-radius: 20px; visibility: hidden">
         </div>
         <div class="form-group" style="margin-top: 10px;">
             <input id="file" accept="image/*" type="file" name="file" class="button style2 scrolly"
@@ -313,6 +313,7 @@
 
             reader.onload = function (e) {
                 $('#previewImage').attr('src', e.target.result);
+                $('#previewImage').css("visibility", "visible");
             }
 
             reader.readAsDataURL(input.files[0]); // convert to base64 string
