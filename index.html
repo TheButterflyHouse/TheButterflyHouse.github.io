@@ -5,286 +5,334 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html lang="en">
-	<head >
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-0GTECHG4KS"></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-			gtag('js', new Date());
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GTECHG4KS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-			gtag('config', 'G-0GTECHG4KS');
-		</script>
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-				integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-		<title>The Butterfly House - Lepidoptera Species Image Identification</title>
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5 ">
-		<link rel="shortcut icon" href="/images/thumbs/favicon.ico" type="image/x-icon">
-		<meta name="Description" content="The Butterfly House. Identify species of Butterfly and Lepidoptera from images.">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-		<!-- Header -->
-			<section id="header">
-				<header>
-					<h1>The Butterfly House - Automatic Butterfly Classification</h1>
-					<p>What Butterfly is this?</p>
-				</header>
-				<footer>
-					<a href="#banner" class="button style2 scrolly-middle">Identify Lepidoptera</a>
-				</footer>
-			</section>
+        gtag('js', new Date());
 
-		<style>
-			input[type=file]::file-selector-button {
-				border: 2px solid #8ed7c0;
-				padding: .2em .4em;
-				border-radius: .2em;
-				background-color: #ffffff;
-				transition: 1s;
-				text-align: center;
-			}
+        gtag('config', 'G-0GTECHG4KS');
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>The Butterfly House - Lepidoptera Species Image Identification</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5 ">
+    <link rel="shortcut icon" href="/images/thumbs/favicon.ico" type="image/x-icon">
+    <meta name="Description" content="The Butterfly House. Identify species of Butterfly and Lepidoptera from images.">
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    </noscript>
+</head>
+<body class="is-preload">
 
-			input[type=file]::file-selector-button:hover {
-				background-color: #81ecec;
-				border: 2px solid #8ed7c0;
-				text-align: center;
-			}
+<!-- Header -->
+<section id="header">
+    <header>
+        <h1>The Butterfly House - Automatic Butterfly Classification</h1>
+        <p>What Butterfly is this?</p>
+    </header>
+    <footer>
+        <a href="#banner" class="button style2 scrolly-middle">Identify Lepidoptera</a>
+    </footer>
+</section>
 
-			input[type=file]::-webkit-file-upload-button {
-				border: 2px solid #8ed7c0;
-				padding: .2em .4em;
-				border-radius: .2em;
-				background-color: #ffffff;
-				transition: 1s;
-				text-align: center;
-			}
+<style>
+    input[type=file]::file-selector-button {
+        border: 2px solid #8ed7c0;
+        padding: .2em .4em;
+        border-radius: .2em;
+        background-color: #ffffff;
+        transition: 1s;
+        text-align: center;
+    }
 
-			input[type=file]::-webkit-file-upload-button:hover {
-				background-color: #81ecec;
-				border: 2px solid #8ed7c0;
-				text-align: center;
-			}
+    input[type=file]::file-selector-button:hover {
+        background-color: #81ecec;
+        border: 2px solid #8ed7c0;
+        text-align: center;
+    }
 
-			/* Extra small devices (phones, 600px and down) */
-			@media only screen and (max-width: 600px) {
-				#previewImage{
-					width: 80%;
-					height: 80%;
-				}
-			}
+    input[type=file]::-webkit-file-upload-button {
+        border: 2px solid #8ed7c0;
+        padding: .2em .4em;
+        border-radius: .2em;
+        background-color: #ffffff;
+        transition: 1s;
+        text-align: center;
+    }
 
-			/* Small devices (portrait tablets and large phones, 600px and up) */
-			@media only screen and (min-width: 600px) {
-				#previewImage{
-					width: 60%;
-					height: 60%;
-				}
-			}
+    input[type=file]::-webkit-file-upload-button:hover {
+        background-color: #81ecec;
+        border: 2px solid #8ed7c0;
+        text-align: center;
+    }
 
-			/* Medium devices (landscape tablets, 768px and up) */
-			@media only screen and (min-width: 768px) {
-				#previewImage{
-					width: 50%;
-					height: 50%;
-				}
-			}
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        #previewImage {
+            width: 80%;
+            height: 80%;
+        }
+    }
 
-			/* Large devices (laptops/desktops, 992px and up) */
-			@media only screen and (min-width: 992px) {
-				#previewImage{
-					width: 40%;
-					height: 40%;
-				}
-			}
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+        #previewImage {
+            width: 60%;
+            height: 60%;
+        }
+    }
 
-			/* Extra large devices (large laptops and desktops, 1200px and up) */
-			@media only screen and (min-width: 1200px) {
-				#previewImage{
-					width: 30%;
-					height: 30%;
-				}
-			}
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+        #previewImage {
+            width: 50%;
+            height: 50%;
+        }
+    }
 
-		</style>
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+        #previewImage {
+            width: 40%;
+            height: 40%;
+        }
+    }
 
-		<!-- Banner -->
-			<section id="banner">
-				<header>
-					<h2>Butterfly Identification - The Butterfly House</h2>
-				</header>
-				<p>Upload an image of a butterfly below. Our servers will try and identify what species of Lepidoptera
-				has been found within the image.</p>
-				<form method="post" action="" enctype="multipart/form-data" id="myform">
-					<div style="margin-top: 30px" class='preview'>
-						<img src="" id="previewImage" width="30%" height="30%" style="border-radius: 20px">
-					</div>
-					<div class="form-group" style="margin-top: 30px;">
-						<label for="file">Image</label>
-						<input id="file" accept="image/*" type="file" name="file" class="button style2 scrolly" Value="Select Image">
-					</div>
-					<div class="form-group" style="text-align: center; margin-top: 30px">
-						<div class="g-recaptcha" style="display: inline-block" data-sitekey="6LdZwXsaAAAAAHA63WR2yr_jaziLuqKJaOS-Pa03"></div>
-					</div>
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+        #previewImage {
+            width: 30%;
+            height: 30%;
+        }
+    }
 
-					<div class="form-group" style="margin-top: 30px;">
-						<label for="but_upload">Submit</label>
-						<input id="but_upload" type="button" class="button style2 scrolly" name="Submit" value="Upload">
-					</div>
+</style>
 
-				</form>
+<!-- Banner -->
+<section id="banner">
+    <header>
+        <h2>Butterfly Identification - The Butterfly House</h2>
+    </header>
+    <div>
+        <p>Upload an image of a butterfly below. Our servers will try and identify what species of Lepidoptera
+        has been found within the image.</p>
+    </div>
 
-				<div>
-					<p style="margin-top: 25px" id="result"></p>
-				</div>
-			</section>
-
-		<!-- Feature 1 -->
-			<article id="first" class="container box style1 right">
-				<div style="text-align: center">
-					<a href="#"  class="image fit"><img style="background-color: lightgrey" src="images/fulls/nn.svg" alt="Neural Network Edwin Langley" /></a>
-				</div>
-				<div class="inner">
-					<header>
-						<h2>We use a Convolutional Neural Network
-						to classify your images</h2>
-					</header>
-					<p>We have trained a CNN model on thousands of images of lepidoptera in order to try and classify your image. </p>
-				</div>
-			</article>
-
-		<!-- Feature 2 -->
-			<article class="container box style1 left">
-				<a href="#" class="image fit"><img src="images/fulls/donut.webp" alt="Doughnut chart for species results" /></a>
-				<div class="inner">
-					<header>
-						<h2>See your results</h2>
-					</header>
-					<p>The results are send back to you with a breakdown of the species probability. A record of this siting is added to the tally.</p>
-				</div>
-			</article>
-
-		<!-- Portfolio -->
-			<article class="container box style2">
-				<header>
-					<h2>Supported Species</h2>
-					<p>Here are some of the species the Convolutional Neural Network has been trained against.</p>
-				</header>
-				<div class="inner gallery">
-					<div class="row gtr-0">
-						<div class="col-3 col-12-mobile"><a href="images/fulls/s1.webp" class="image fit"><img src="images/fulls/s1.webp" alt="Aglais io" title="Aglais io" />Aglais io</a></div>
-						<div class="col-3 col-12-mobile"><a href="images/fulls/s2.webp" class="image fit"><img src="images/fulls/s2.webp" alt="Aglais urticae" title="Aglais urticae" />Aglais urticae</a></div>
-						<div class="col-3 col-12-mobile"><a href="images/fulls/s3.webp" class="image fit"><img src="images/fulls/s3.webp" alt="Aphantopus hyperantus" title="Aphantopus hyperantus" />Aphantopus hyperantus</a></div>
-						<div class="col-3 col-12-mobile"><a href="images/fulls/s4.webp" class="image fit"><img src="images/fulls/s4.webp" alt="Junonia coenia" title="Junonia coenia" />Junonia coenia</a></div>
-					</div>
-					<div class="row gtr-0">
-						<div class="col-3 col-12-mobile"><a href="images/fulls/s5.webp" class="image fit"><img src="images/fulls/s5.webp" alt="Maniola jurtina" title="Maniola jurtina" />Maniola jurtina</a></div>
-						<div class="col-3 col-12-mobile"><a href="images/fulls/s6.webp" class="image fit"><img src="images/fulls/s6.webp" alt="Pieris brassicae" title="Pieris brassicae" />Pieris brassicae</a></div>
-						<div class="col-3 col-12-mobile"><a href="images/fulls/s7.webp" class="image fit"><img src="images/fulls/s7.webp" alt="Pieris rapae" title="Pieris rapae" />Pieris rapae</a></div>
-						<div class="col-3 col-12-mobile"><a href="images/fulls/s8.webp" class="image fit"><img src="images/fulls/s8.webp" alt="Vanessa atalanta" title="Vanessa atalanta" />Vanessa atalanta</a></div>
-					</div>
-				</div>
-			</article>
-
-		<!-- Contact -->
-			<article class="container box style3">
-				<header>
-					<h2>Contact Us</h2>
-					<p>Please use the below information to contact us</p>
-				</header>
-				<form method="post" action="#">
-					<div class="row gtr-50">
-						<div id="name" class="col-6 col-12-mobile"><input type="text" class="text" name="name" placeholder="Name" /></div>
-						<div id="email" class="col-6 col-12-mobile"><input type="text" class="text" name="email" placeholder="Email" /></div>
-						<div class="col-12">
-							<label for="messageArea">Message</label>
-							<textarea id="messageArea" name="message" placeholder="Message"></textarea>
-						</div>
-						<div class="col-12">
-							<ul class="actions">
-								<li>
-									<label for="submitMessage"></label>
-									<input  id="submitMessage" type="submit" value="Send Message" />
-								</li>
-							</ul>
-						</div>
-					</div>
-				</form>
-			</article>
+    <div style="margin-top: 10px">
+        <p>JPEG or PNG images under 5MB are accepted.</p>
+    </div>
+    <div style="margin-top: 10px; font-size: small">
+        <p>
+            <i>By using this service, you agree to only submit images of Lepidoptera. Predictions are made in memory and are not saved to persistent storage</i>
+        </p>
+    </div>
 
 
-		<section id="footer">
-			<div class="copyright">
-				<ul class="menu">
-					<li>&copy; <a href="https://edwinlangley.co.uk">Edwin Langley</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-				</ul>
-			</div>
-		</section>
+    <form method="post" action="" enctype="multipart/form-data" id="myform">
+        <div style="margin-top: 10px" class='preview'>
+            <img src="" id="previewImage" width="30%" height="30%" style="border-radius: 20px">
+        </div>
+        <div class="form-group" style="margin-top: 10px;">
+            <input id="file" accept="image/*" type="file" name="file" class="button style2 scrolly"
+                   Value="Select Image">
+        </div>
+        <div class="form-group" style="margin-top: 30px;">
+            <input id="but_upload" type="button" class="button style2 scrolly" name="Submit" value="Upload">
+        </div>
+
+        <div class="form-group" style="text-align: center; margin-top: 30px">
+            <div class="g-recaptcha" style="display: inline-block"
+                 data-sitekey="6LdZwXsaAAAAAHA63WR2yr_jaziLuqKJaOS-Pa03"></div>
+        </div>
+
+    </form>
+
+    <div>
+        <p style="margin-top: 25px" id="result"></p>
+    </div>
+</section>
+
+<!-- Feature 1 -->
+<article id="first" class="container box style1 right">
+    <div style="text-align: center">
+        <a href="#" class="image fit"><img style="background-color: lightgrey" src="images/fulls/nn.svg"
+                                           alt="Neural Network Edwin Langley"/></a>
+    </div>
+    <div class="inner">
+        <header>
+            <h2>We use a Convolutional Neural Network
+                to classify your images</h2>
+        </header>
+        <p>We have trained a CNN model on thousands of images of lepidoptera in order to try and classify your
+            image. </p>
+    </div>
+</article>
+
+<!-- Feature 2 -->
+<article class="container box style1 left">
+    <a href="#" class="image fit"><img src="images/fulls/donut.webp" alt="Doughnut chart for species results"/></a>
+    <div class="inner">
+        <header>
+            <h2>See your results</h2>
+        </header>
+        <p>The results are send back to you with a breakdown of the species probability. A record of this siting is
+            added to the tally.</p>
+    </div>
+</article>
+
+<!-- Portfolio -->
+<article class="container box style2">
+    <header>
+        <h2>Supported Species</h2>
+        <p>Here are some of the species the Convolutional Neural Network has been trained against.</p>
+    </header>
+    <div class="inner gallery">
+        <div class="row gtr-0">
+            <div class="col-3 col-12-mobile"><a href="images/fulls/s1.webp" class="image fit"><img
+                    src="images/fulls/s1.webp" alt="Aglais io" title="Aglais io"/>Aglais io</a></div>
+            <div class="col-3 col-12-mobile"><a href="images/fulls/s2.webp" class="image fit"><img
+                    src="images/fulls/s2.webp" alt="Aglais urticae" title="Aglais urticae"/>Aglais urticae</a></div>
+            <div class="col-3 col-12-mobile"><a href="images/fulls/s3.webp" class="image fit"><img
+                    src="images/fulls/s3.webp" alt="Aphantopus hyperantus" title="Aphantopus hyperantus"/>Aphantopus
+                hyperantus</a></div>
+            <div class="col-3 col-12-mobile"><a href="images/fulls/s4.webp" class="image fit"><img
+                    src="images/fulls/s4.webp" alt="Junonia coenia" title="Junonia coenia"/>Junonia coenia</a></div>
+        </div>
+        <div class="row gtr-0">
+            <div class="col-3 col-12-mobile"><a href="images/fulls/s5.webp" class="image fit"><img
+                    src="images/fulls/s5.webp" alt="Maniola jurtina" title="Maniola jurtina"/>Maniola jurtina</a></div>
+            <div class="col-3 col-12-mobile"><a href="images/fulls/s6.webp" class="image fit"><img
+                    src="images/fulls/s6.webp" alt="Pieris brassicae" title="Pieris brassicae"/>Pieris brassicae</a>
+            </div>
+            <div class="col-3 col-12-mobile"><a href="images/fulls/s7.webp" class="image fit"><img
+                    src="images/fulls/s7.webp" alt="Pieris rapae" title="Pieris rapae"/>Pieris rapae</a></div>
+            <div class="col-3 col-12-mobile"><a href="images/fulls/s8.webp" class="image fit"><img
+                    src="images/fulls/s8.webp" alt="Vanessa atalanta" title="Vanessa atalanta"/>Vanessa atalanta</a>
+            </div>
+        </div>
+    </div>
+</article>
+
+<!-- Contact -->
+<article class="container box style3">
+    <header>
+        <h2>Contact Us</h2>
+        <p>Please use the below information to contact us</p>
+    </header>
+    <form method="post" action="#">
+        <div class="row gtr-50">
+            <div id="name" class="col-6 col-12-mobile"><input type="text" class="text" name="name" placeholder="Name"/>
+            </div>
+            <div id="email" class="col-6 col-12-mobile"><input type="text" class="text" name="email"
+                                                               placeholder="Email"/></div>
+            <div class="col-12">
+                <label for="messageArea">Message</label>
+                <textarea id="messageArea" name="message" placeholder="Message"></textarea>
+            </div>
+            <div class="col-12">
+                <ul class="actions">
+                    <li>
+                        <label for="submitMessage"></label>
+                        <input id="submitMessage" type="submit" value="Send Message"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</article>
 
 
-		<script>
-			$(document).ready(function () {
+<section id="footer">
+    <div class="copyright">
+        <ul class="menu">
+            <li>&copy; <a href="https://edwinlangley.co.uk">Edwin Langley</a></li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </div>
+</section>
 
-				$("#but_upload").click(function () {
 
-					var fd = new FormData();
-					var files = $('#file')[0].files;
+<script>
+    $(document).ready(function () {
 
-					var recaptcha = $("#g-recaptcha-response").val();
-					if (recaptcha != "") {
-						// Check file selected or not
-						if (files.length > 0) {
-							fd.append('file', files[0]);
+        $("#but_upload").click(function () {
 
-							$.ajax({
-								url: 'https://butterflyprediction.herokuapp.com/predict',
-								type: 'post',
-								data: fd,
-								contentType: false,
-								processData: false,
-								success: function (response) {
-									$('#result').text(response["message"]);
-								},
-							});
-						} else {
-							alert("Please select a file.");
-						}
-					} else {
-						alert("Please check the reCAPTCHA");
-					}
+            var fd = new FormData();
+            var files = $('#file')[0].files;
 
-				});
-			});
+            console.log(files[0]['type'])
 
-			function readURL(input) {
-				if (input.files && input.files[0]) {
-					var reader = new FileReader();
+            const validImageTypes = ['image/jpeg', 'image/png'];
 
-					reader.onload = function(e) {
-						$('#previewImage').attr('src', e.target.result);
-					}
+            var recaptcha = $("#g-recaptcha-response").val();
+            if (recaptcha != "") {
+                // Check file selected or not
+                if (files.length > 0) {
+                    if (validImageTypes.includes(files[0]['type'])) {
+                        if ((files[0].size / 1024 / 1024) < 5) {
+                            fd.append('file', files[0]);
+                            $.ajax({
+                                url: 'https://butterflyprediction.herokuapp.com/predict',
+                                type: 'post',
+                                data: fd,
+                                contentType: false,
+                                processData: false,
+                                success: function (response) {
+                                    $('#result').text(response["message"]);
+                                },
+                            });
+                        } else {
+                            alert("File is bigger than 2MB")
+                        }
+                    } else {
+                        alert("Must be JPEG or PNG Image")
+                    }
+                } else {
+                    alert("Please select a file.");
+                }
+            } else {
+                alert("Please check the reCAPTCHA");
+            }
 
-					reader.readAsDataURL(input.files[0]); // convert to base64 string
-				}
-			}
+        });
+    });
 
-			$("#file").change(function() {
-				readURL(this);
-			});
-		</script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+            reader.onload = function (e) {
+                $('#previewImage').style.visibility = "visible";
+                $('#previewImage').attr('src', e.target.result);
+            }
 
-	</body>
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+    }
+
+    $("#file").change(function () {
+        readURL(this);
+    });
+</script>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.poptrox.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
 </html>
