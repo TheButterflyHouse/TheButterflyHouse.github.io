@@ -124,7 +124,7 @@
         <p>View the training accuracy of the model below:</p>
     </div>
 
-    <canvas id="myChart"></canvas>
+    <canvas id="myChart" style="max-width: 1300px; margin: 0 auto;"></canvas>
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
@@ -171,8 +171,22 @@
         <h2>Training Instances</h2>
     </header>
     <div>
-        <p>The data the model was trained from:</p>
+        <p style="font-size: larger">30,000 Images</p>
     </div>
+    <div>
+        <p style="font-size: larger">49 Classes</p>
+    </div>
+    <div>
+        <p style="font-size: larger">612 Images per class</p>
+    </div>
+    <div>
+        <p style="font-size: larger">5 Augmentations per Image</p>
+    </div>
+
+    <header style="padding-top: 40px">
+        <h2>Training Instances</h2>
+    </header>
+
 
 </section>
 
