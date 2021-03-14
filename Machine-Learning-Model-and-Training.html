@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<!--
+	Overflow by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GTECHG4KS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-0GTECHG4KS');
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>The Butterfly House - Machine Learning Model and Training</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5 ">
+    <link rel="shortcut icon" href="/images/thumbs/favicon.ico" type="image/x-icon">
+    <meta name="Description" content="The Butterfly House. Learn about the Machine Learning model and how it was trained.">
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    </noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+</head>
+<body class="is-preload">
+
+<!-- Header -->
+<section id="header" style="padding: 5em 0 1em 0;">
+    <header>
+        <h1>The Butterfly House - Machine Learning Model and Training</h1>
+    </header>
+</section>
+
+<style>
+    input[type=file]::file-selector-button {
+        border: 2px solid #8ed7c0;
+        padding: .2em .4em;
+        border-radius: .2em;
+        background-color: #ffffff;
+        transition: 1s;
+        text-align: center;
+    }
+
+    input[type=file]::file-selector-button:hover {
+        background-color: #81ecec;
+        border: 2px solid #8ed7c0;
+        text-align: center;
+    }
+
+    input[type=file]::-webkit-file-upload-button {
+        border: 2px solid #8ed7c0;
+        padding: .2em .4em;
+        border-radius: .2em;
+        background-color: #ffffff;
+        transition: 1s;
+        text-align: center;
+    }
+
+    input[type=file]::-webkit-file-upload-button:hover {
+        background-color: #81ecec;
+        border: 2px solid #8ed7c0;
+        text-align: center;
+    }
+
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        #previewImage {
+            width: 80%;
+            height: 80%;
+        }
+    }
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+        #previewImage {
+            width: 60%;
+            height: 60%;
+        }
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+        #previewImage {
+            width: 50%;
+            height: 50%;
+        }
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+        #previewImage {
+            width: 40%;
+            height: 40%;
+        }
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+        #previewImage {
+            width: 30%;
+            height: 30%;
+        }
+    }
+
+</style>
+
+<!-- Banner -->
+<section id="banner">
+    <header>
+        <h2>Model Accuracy</h2>
+    </header>
+    <div>
+        <p>View the training accuracy of the model below:</p>
+    </div>
+
+    <canvas id="myChart"></canvas>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['0 Epochs', '10 Epochs', '20 Epochs', '30 Epochs', '40 Epochs', '50 Epochs'],
+                datasets: [{
+                    label: 'Accuracy',
+                    data: [0.0, 0.603, 0.691, 0.724, 0.711, 0.736],
+                    backgroundColor: [
+                        'rgba(125, 0, 0, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(0, 0, 0, 1)'
+                    ],
+                    borderWidth: 1
+                },
+                    {
+                        label: 'Validation Accuracy',
+                        data: [0.0, 0.645, 0.661, 0.694, 0.700, 0.701],
+                        backgroundColor: [
+                            'rgba(0, 255, 0, 0.3)'
+                        ],
+                        borderColor: [
+                            'rgba(0, 0, 0, 1)'
+                        ],
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
+
+    <header style="padding-top: 40px">
+        <h2>Training Instances</h2>
+    </header>
+    <div>
+        <p>The data the model was trained from:</p>
+    </div>
+
+</section>
+
+<!--&lt;!&ndash; Feature 1 &ndash;&gt;-->
+<!--<article id="first" class="container box style1 right">-->
+<!--    <div style="text-align: center">-->
+<!--        <a href="#" class="image fit"><img style="background-color: lightgrey" src="images/fulls/nn.svg"-->
+<!--                                           alt="Neural Network Edwin Langley"/></a>-->
+<!--    </div>-->
+<!--    <div class="inner">-->
+<!--        <header>-->
+<!--            <h2>We use a Convolutional Neural Network-->
+<!--                to classify your images</h2>-->
+<!--        </header>-->
+<!--        <p>We have trained a CNN model on thousands of images of lepidoptera in order to try and classify your-->
+<!--            image. </p>-->
+<!--    </div>-->
+<!--</article>-->
+
+<!--&lt;!&ndash; Feature 2 &ndash;&gt;-->
+<!--<article class="container box style1 left">-->
+<!--    <a href="#" class="image fit"><img src="images/fulls/donut.webp" alt="Doughnut chart for species results"/></a>-->
+<!--    <div class="inner">-->
+<!--        <header>-->
+<!--            <h2>See your results</h2>-->
+<!--        </header>-->
+<!--        <p>The results are send back to you with a breakdown of the species probability. A record of this siting is-->
+<!--            added to the tally.</p>-->
+<!--    </div>-->
+<!--</article>-->
+
+<!--&lt;!&ndash; Portfolio &ndash;&gt;-->
+<!--<article class="container box style2">-->
+<!--    <header>-->
+<!--        <h2>Supported Species</h2>-->
+<!--        <p>Here are some of the species the Convolutional Neural Network has been trained against.</p>-->
+<!--    </header>-->
+<!--    <div class="inner gallery">-->
+<!--        <div class="row gtr-0">-->
+<!--            <div class="col-3 col-12-mobile"><a href="images/fulls/s1.webp" class="image fit"><img-->
+<!--                    src="images/fulls/s1.webp" alt="Aglais io" title="Aglais io"/>Aglais io</a></div>-->
+<!--            <div class="col-3 col-12-mobile"><a href="images/fulls/s2.webp" class="image fit"><img-->
+<!--                    src="images/fulls/s2.webp" alt="Aglais urticae" title="Aglais urticae"/>Aglais urticae</a></div>-->
+<!--            <div class="col-3 col-12-mobile"><a href="images/fulls/s3.webp" class="image fit"><img-->
+<!--                    src="images/fulls/s3.webp" alt="Aphantopus hyperantus" title="Aphantopus hyperantus"/>Aphantopus-->
+<!--                hyperantus</a></div>-->
+<!--            <div class="col-3 col-12-mobile"><a href="images/fulls/s4.webp" class="image fit"><img-->
+<!--                    src="images/fulls/s4.webp" alt="Junonia coenia" title="Junonia coenia"/>Junonia coenia</a></div>-->
+<!--        </div>-->
+<!--        <div class="row gtr-0">-->
+<!--            <div class="col-3 col-12-mobile"><a href="images/fulls/s5.webp" class="image fit"><img-->
+<!--                    src="images/fulls/s5.webp" alt="Maniola jurtina" title="Maniola jurtina"/>Maniola jurtina</a></div>-->
+<!--            <div class="col-3 col-12-mobile"><a href="images/fulls/s6.webp" class="image fit"><img-->
+<!--                    src="images/fulls/s6.webp" alt="Pieris brassicae" title="Pieris brassicae"/>Pieris brassicae</a>-->
+<!--            </div>-->
+<!--            <div class="col-3 col-12-mobile"><a href="images/fulls/s7.webp" class="image fit"><img-->
+<!--                    src="images/fulls/s7.webp" alt="Pieris rapae" title="Pieris rapae"/>Pieris rapae</a></div>-->
+<!--            <div class="col-3 col-12-mobile"><a href="images/fulls/s8.webp" class="image fit"><img-->
+<!--                    src="images/fulls/s8.webp" alt="Vanessa atalanta" title="Vanessa atalanta"/>Vanessa atalanta</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</article>-->
+
+<!--&lt;!&ndash; Contact &ndash;&gt;-->
+<!--<article class="container box style3">-->
+<!--    <header>-->
+<!--        <h2>Contact Us</h2>-->
+<!--        <p>Please use the below information to contact us</p>-->
+<!--    </header>-->
+<!--    <form method="post" action="#">-->
+<!--        <div class="row gtr-50">-->
+<!--            <div id="name" class="col-6 col-12-mobile"><input type="text" class="text" name="name" placeholder="Name"/>-->
+<!--            </div>-->
+<!--            <div id="email" class="col-6 col-12-mobile"><input type="text" class="text" name="email"-->
+<!--                                                               placeholder="Email"/></div>-->
+<!--            <div class="col-12">-->
+<!--                <label for="messageArea">Message</label>-->
+<!--                <textarea id="messageArea" name="message" placeholder="Message"></textarea>-->
+<!--            </div>-->
+<!--            <div class="col-12">-->
+<!--                <ul class="actions">-->
+<!--                    <li>-->
+<!--                        <label for="submitMessage"></label>-->
+<!--                        <input id="submitMessage" type="submit" value="Send Message"/>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</article>-->
+
+
+<section id="footer">
+    <div class="copyright">
+        <ul class="menu">
+            <li>&copy; <a href="https://edwinlangley.co.uk">Edwin Langley</a></li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </div>
+</section>
+
+
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.poptrox.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
