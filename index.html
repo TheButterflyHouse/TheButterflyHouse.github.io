@@ -148,19 +148,22 @@
     <header>
         <h2>Butterfly Identification - The Butterfly House</h2>
     </header>
-    <div>
-        <p>Upload an image of a butterfly below. Our servers will try and identify what species of Lepidoptera
-        has been found within the image.</p>
+    <div id="introInfo">
+        <div>
+            <p>Upload an image of a butterfly below. Our servers will try and identify what species of Lepidoptera
+                has been found within the image.</p>
+        </div>
+
+        <div style="margin-top: 10px">
+            <p>JPEG or PNG images under 5MB are accepted.</p>
+        </div>
+        <div style="margin-top: 10px; font-size: small">
+            <p>
+                <i>By using this service, you agree to only submit images of Lepidoptera. Predictions are made in memory and are not saved to persistent storage</i>
+            </p>
+        </div>
     </div>
 
-    <div style="margin-top: 10px">
-        <p>JPEG or PNG images under 5MB are accepted.</p>
-    </div>
-    <div style="margin-top: 10px; font-size: small">
-        <p>
-            <i>By using this service, you agree to only submit images of Lepidoptera. Predictions are made in memory and are not saved to persistent storage</i>
-        </p>
-    </div>
 
 
     <form method="post" action="" enctype="multipart/form-data" id="myform">
@@ -188,7 +191,7 @@
             <h3>Your Prediction Results</h3>
         </div>
         <div style="margin-top: 30px;">
-            <img src="images/display/Aglais_io.jpg" id="resultImage" alt="Prediction Result">
+            <img src="" id="resultImage" alt="Prediction Result">
         </div>
         <div style="margin-top: 30px;">
             <p><b>Species name: </b><span id="resultsName"></span> </p>
@@ -336,6 +339,7 @@
                                     $('#result').text(response["class"]);
                                     $('#resultsDiv').css("display", "block")
                                     $('#myform').css("display", "none")
+                                    $('#introInfo').css("display", "none")
                                     $('#resultsName').text(response["class"]);
                                     $('#resultsScore').text(response["score"]);
                                     $('#resultImage').attr('src', file_name);
