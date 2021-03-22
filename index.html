@@ -191,10 +191,10 @@
             <img src="images/display/Aglais_io.jpg" id="resultImage" alt="Prediction Result">
         </div>
         <div style="margin-top: 30px;">
-            <p><b>Species name: </b> Aglais io</p>
+            <p><b>Species name: </b><span id="resultsName"></span> </p>
         </div>
         <div style="margin-top: 30px;">
-            <p><b>Confidence: </b> 80%</p>
+            <p><b>Confidence: </b> <span id="resultsScore"></span></p>
         </div>
     </div>
 
@@ -329,9 +329,16 @@
                                 contentType: false,
                                 processData: false,
                                 success: function (response) {
+                                    var file_name = response["name"];
+                                    file_name = file_name.replace(" ", "_");
+                                    file_name = "/images/display/" + file_name + ".webp";
+
                                     $('#result').text(response["class"]);
                                     $('#resultsDiv').css("visibility", "visible")
                                     $('#myform').css("visibility", "hidden")
+                                    $('#resultsName').text(response["class"]);
+                                    $('#resultsScore').text(response["score"]);
+                                    $('#resultImage').attr('src', file_name);
                                 },
                             });
                         } else {
