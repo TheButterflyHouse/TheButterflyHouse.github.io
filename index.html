@@ -199,11 +199,15 @@
         <div style="margin-top: 30px;">
             <p><b>Confidence: </b> <span id="resultsScore"></span></p>
         </div>
+        <div style="margin-top: 30px;" >
+            <button style="font-size: larger" onclick="location.href='https://thebutterflyhou.se/lepidoptera';"  class="button style2 scrolly"> Go To Results</button>
+        </div>
+        <div style="margin-top: 30px;" >
+            <button style="font-size: larger" onclick="submitAgain()" class="button style2 scrolly">Submit Another</button>
+        </div>
     </div>
 
-    <div>
-        <p style="margin-top: 25px" id="result"></p>
-    </div>
+
 </section>
 
 <!-- Feature 1 -->
@@ -372,6 +376,13 @@
 
             reader.readAsDataURL(input.files[0]); // convert to base64 string
         }
+    }
+
+    function submitAgain() {
+        $('#resultsDiv').css("display", "none");
+        $('#myform').css("display", "block")
+        $('#introInfo').css("display", "block")
+
     }
 
     $("#file").change(function () {
