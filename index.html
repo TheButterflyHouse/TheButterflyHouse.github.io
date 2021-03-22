@@ -183,7 +183,7 @@
     </form>
 
 
-    <div id="resultsDiv" style="visibility: hidden">
+    <div id="resultsDiv" style="display: none">
         <div style="margin-top: 30px;">
             <h3>Your Prediction Results</h3>
         </div>
@@ -334,8 +334,8 @@
                                     file_name = "/images/display/" + file_name + ".webp";
 
                                     $('#result').text(response["class"]);
-                                    $('#resultsDiv').css("visibility", "visible")
-                                    $('#myform').css("visibility", "hidden")
+                                    $('#resultsDiv').css("display", "block")
+                                    $('#myform').css("display", "none")
                                     $('#resultsName').text(response["class"]);
                                     $('#resultsScore').text(response["score"]);
                                     $('#resultImage').attr('src', file_name);
