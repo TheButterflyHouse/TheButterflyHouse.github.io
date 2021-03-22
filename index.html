@@ -82,6 +82,11 @@
             width: 80%;
             height: 80%;
         }
+        #resultImage {
+            width: 80%;
+            height: 80%;
+            border-radius: 20px;
+        }
     }
 
     /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -89,6 +94,11 @@
         #previewImage {
             width: 60%;
             height: 60%;
+        }
+        #resultImage {
+            width: 60%;
+            height: 60%;
+            border-radius: 20px;
         }
     }
 
@@ -98,6 +108,11 @@
             width: 50%;
             height: 50%;
         }
+        #resultImage {
+            width: 50%;
+            height: 50%;
+            border-radius: 20px;
+        }
     }
 
     /* Large devices (laptops/desktops, 992px and up) */
@@ -106,6 +121,11 @@
             width: 40%;
             height: 40%;
         }
+        #resultImage {
+            width: 40%;
+            height: 40%;
+            border-radius: 20px;
+        }
     }
 
     /* Extra large devices (large laptops and desktops, 1200px and up) */
@@ -113,6 +133,11 @@
         #previewImage {
             width: 30%;
             height: 30%;
+        }
+        #resultImage {
+            width: 30%;
+            height: 30%;
+            border-radius: 20px;
         }
     }
 
@@ -156,6 +181,22 @@
         </div>
 
     </form>
+
+
+    <div id="resultsDiv" style="visibility: hidden">
+        <div style="margin-top: 30px;">
+            <h3>Your Prediction Results</h3>
+        </div>
+        <div style="margin-top: 30px;">
+            <img src="images/display/Aglais_io.jpg" id="resultImage" alt="Prediction Result">
+        </div>
+        <div style="margin-top: 30px;">
+            <p><b>Species name: </b> Aglais io</p>
+        </div>
+        <div style="margin-top: 30px;">
+            <p><b>Confidence: </b> 80%</p>
+        </div>
+    </div>
 
     <div>
         <p style="margin-top: 25px" id="result"></p>
@@ -289,6 +330,8 @@
                                 processData: false,
                                 success: function (response) {
                                     $('#result').text(response["message"]);
+                                    $('#resultsDiv').css("visibility", "visible")
+                                    $('#myform').css("visibility", "hidden")
                                 },
                             });
                         } else {
