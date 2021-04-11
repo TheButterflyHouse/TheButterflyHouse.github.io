@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<!--
+	Overflow by HTML5 UP :)
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0GTECHG4KS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-0GTECHG4KS');
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>Aglais io - Peacock Butterfly - The Butterfly House</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5 ">
+    <link rel="shortcut icon" href="/images/thumbs/favicon.ico" type="image/x-icon">
+    <meta name="Description" content="Details for Aglais io. The Butterfly House - lepidoptera and sightings of butterfies.">
+    <link rel="stylesheet" href="assets/css/main.css"/>
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css"/>
+    </noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+            integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+            crossorigin="anonymous"></script>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+</head>
+
+<body class="is-preload" style="background-color:#344340; background-image: none ">
+
+
+<div class="container" style="background-color: #e4e4e4; margin-top: 50px; padding-bottom: 30px">
+    <div class="row" style="text-align: center;">
+        <h1>Aglais io - Peacock Butterfly</h1>
+    </div>
+    <div class="row" style="text-align: center; ">
+        <div class="col-sm">
+            <img src="images/display/Aglais_io.webp" width="100%" alt="Image of Aglais io Butterfly">
+        </div>
+        <div class="col-sm">
+            <div>
+                <p><span style="font-weight: bold">Formal Name: </span>Aglais io</p>
+                <p><span style="font-weight: bold">Informal Name: </span>Peacock Butterfly </p>
+                <p><span style="font-weight: bold">Conservation Status: </span>No threat to conservation and numbers have been on the rise </p>
+                <p><span style="font-weight: bold">Location: </span>Europe and Asia </p>
+                <p><span style="font-weight: bold">Average Wingspan (cm): </span>5.3 </p>
+                <p><span style="font-weight: bold">Seen Between: </span>May - July</p>
+                <p>
+                    <span style="font-weight: bold">Description: </span>
+                    Aglais io is also known as the Peacock butterfly. It has an average wingspan of 5.3 cm and thrives across Europe and Asia.
+                </p>
+                <p>
+                    Its habitat consists of woodland and meadows, often seen in UK gardens. Eggs of Aglais io are laid in
+                    the spring leading to the butterflies being seen between May and July. These butterflies have vibrant
+                    red/ orange wings on the upper side, with small spots on them which look like eyes. The underside of the
+                    wing is the opposite as it's dark brown/ black all over. It uses the colourful 'eyes' on its wings to intimidate
+                    prey, and in some instances, like in the dark, they use a hissing signal to scare them off (this is achieved by rubbing the veins in its wings together).
+                </p>
+                <p>
+                    Aglais ios diet consists of nectar from flowers such as thistle, betony, bluebell, cuckooflower, dandelion,
+                    and buddleia. Predators of Aglais Io include mice and small birds.  This butterfly's conservation
+                    status is not a threat with numbers increasing. They can live up to 11 months.
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #5a5959;
+        color: white;
+        text-align: center;
+        margin-bottom: 0em;
+        margin-top: 0em;
+        padding-bottom: 0.25em;
+        padding-top: 0.25em;
+        z-index: 9999;
+    }
+</style>
+
+<div class="footer">
+    <div class="copyright">
+        <ul class="menu" style="margin-bottom: 0 ; font-size: small; font-family: Arial; margin: 0;">
+            <li style="display: inline-block; font-size: small; font-family: Arial;">&copy; <a style="color: white; "
+                                                                                               href="https://edwinlangley.co.uk"><u>Edwin
+                Langley</u></a>. Using this site you agree to the <a style="color: white"
+                                                                     href="https://thebutterflyhou.se/privacy.html"><u>Cookie
+                policy</u></a></li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+        $.ajax({
+            url: "https://butterflyprediction.herokuapp.com/sightings",
+            context: document.body,
+            success: function (response) {
+                var i;
+                for (i = 0; i < 49; i++) {
+                    var target = response[i]
+                    var elem = document.getElementById(target[0]);
+                    elem.innerText = "Count : " + target[1]
+                    console.log(target)
+                }
+            }
+        });
+    });
+
+
+</script>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.poptrox.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
