@@ -33,6 +33,42 @@ body {
 	line-height: 1;
 }
 
+/* Style the list */
+ul.breadcrumb {
+	padding: 10px 0px;
+	list-style: none;
+	display: inline;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+	display: inline;
+	font-size: 18px;
+	padding-left: 0.5em;
+}
+
+ul.breadcrumb li:first-child {
+	padding-left: 0;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+	color: darkgray;
+	content: "/\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+	color: darkgray;
+	text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+	color: darkgray;
+	text-decoration: underline;
+}
+
 ol, ul {
 	list-style: none;
 }
